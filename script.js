@@ -76,99 +76,154 @@ function initNavigation() {
   });
 }
 
-// Multiple Image Carousels Functionality
+// Multiple Image Carousels Functionality with Sliding Animation
 function initCarousels() {
   const carousels = document.querySelectorAll('.project-image-carousel');
-  
+
   if (carousels.length === 0) return;
-  
+
   const carouselData = {
-    1: ['[Image 1 - Project 1]', '[Image 2 - Project 1]', '[Image 3 - Project 1]'],
-    2: ['[Image 1 - Project 2]', '[Image 2 - Project 2]', '[Image 3 - Project 2]'],
-    3: ['[Image 1 - Project 3]', '[Image 2 - Project 3]', '[Image 3 - Project 3]'],
-    4: ['[Image 1 - Project 4]', '[Image 2 - Project 4]', '[Image 3 - Project 4]']
+    1: ['Project 1 — Image 1', 'Project 1 — Image 2', 'Project 1 — Image 3'],
+    2: ['Project 2 — Image 1', 'Project 2 — Image 2', 'Project 2 — Image 3'],
+    3: ['Project 3 — Image 1', 'Project 3 — Image 2', 'Project 3 — Image 3'],
+    4: ['Project 4 — Image 1', 'Project 4 — Image 2', 'Project 4 — Image 3']
   };
-  
+
   const carouselIntervals = {};
-  
-  // Initialize each carousel
+
   carousels.forEach((carousel, index) => {
     const carouselId = index + 1;
-    const carouselContent = carousel.querySelector('.carousel-content');
     const carouselDots = carousel.querySelectorAll('.carousel-dot');
-    
-    if (!carouselContent || carouselDots.length === 0) return;
-    
+
+    if (carouselDots.length === 0) return;
+
     let currentIndex = 0;
-    
-    function updateCarousel(index, carouselId) {
-      // Update active dot
+    const totalSlides = carouselData[carouselId].length;
+
+    const slidesContainer = document.createElement('div');
+    slidesContainer.className = 'carousel-slides-container';
+
+    const slidesWrapper = document.createElement('div');
+    slidesWrapper.className = 'carousel-slides';
+
+    carouselData[carouselId].forEach((imageText) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.innerHTML = `<div class="carousel-content">${imageText}</div>`;
+      slidesWrapper.appendChild(slide);
+    });
+
+    slidesContainer.appendChild(slidesWrapper);
+
+    const prevButton = document.createElement('button');
+    prevButton.className = 'carousel-nav-button prev';
+    prevButton.setAttribute('aria-label', 'Previous image');
+    prevButton.innerHTML = `
+      <svg class="carousel-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+
+    const nextButton = document.createElement('button');
+    nextButton.className = 'carousel-nav-button next';
+    nextButton.setAttribute('aria-label', 'Next image');
+    nextButton.innerHTML = `
+      <svg class="carousel-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+
+    const existingContent = carousel.querySelector('.carousel-content');
+    if (existingContent) {
+      existingContent.remove();
+    }
+
+    carousel.insertBefore(slidesContainer, carousel.firstChild);
+    carousel.appendChild(prevButton);
+    carousel.appendChild(nextButton);
+
+    function updateCarousel(newIndex) {
+      currentIndex = newIndex;
+      const offset = -currentIndex * 100;
+      slidesWrapper.style.transform = `translateX(${offset}%)`;
+
       carouselDots.forEach((dot, i) => {
-        const isActive = i === index;
+        const isActive = i === currentIndex;
         dot.classList.toggle('active', isActive);
         dot.setAttribute('aria-selected', isActive);
         dot.setAttribute('tabindex', isActive ? '0' : '-1');
       });
-      
-      // Update content with fade effect
-      carouselContent.style.opacity = '0';
-      setTimeout(() => {
-        carouselContent.textContent = carouselData[carouselId][index];
-        carouselContent.style.opacity = '1';
-      }, 300);
-      
-      currentIndex = index;
     }
-    
-    function nextSlide(carouselId) {
-      const nextIndex = (currentIndex + 1) % carouselData[carouselId].length;
-      updateCarousel(nextIndex, carouselId);
+
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel(nextIndex);
     }
-    
-    // Add click functionality to dots
-    carouselDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => updateCarousel(index, carouselId));
-      
+
+    function prevSlide() {
+      const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel(prevIndex);
+    }
+
+    prevButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevSlide();
+      stopAutoRotate();
+      startAutoRotate();
+    });
+
+    nextButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextSlide();
+      stopAutoRotate();
+      startAutoRotate();
+    });
+
+    carouselDots.forEach((dot, dotIndex) => {
+      dot.addEventListener('click', () => {
+        updateCarousel(dotIndex);
+        stopAutoRotate();
+        startAutoRotate();
+      });
+
       dot.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          updateCarousel(index, carouselId);
+          updateCarousel(dotIndex);
+          stopAutoRotate();
+          startAutoRotate();
         }
-        
-        // Arrow key navigation
+
         if (e.key === 'ArrowRight') {
           e.preventDefault();
-          nextSlide(carouselId);
+          nextSlide();
         }
-        
+
         if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          const prevIndex = (currentIndex - 1 + carouselData[carouselId].length) % carouselData[carouselId].length;
-          updateCarousel(prevIndex, carouselId);
+          prevSlide();
         }
       });
     });
-    
-    // Start auto-rotation
-    function startAutoRotate(carouselId) {
-      carouselIntervals[carouselId] = setInterval(() => nextSlide(carouselId), 4000);
+
+    function startAutoRotate() {
+      stopAutoRotate();
+      carouselIntervals[carouselId] = setInterval(() => nextSlide(), 4000);
     }
-    
-    function stopAutoRotate(carouselId) {
+
+    function stopAutoRotate() {
       if (carouselIntervals[carouselId]) {
         clearInterval(carouselIntervals[carouselId]);
       }
     }
-    
-    // Pause on hover/focus
-    carousel.addEventListener('mouseenter', () => stopAutoRotate(carouselId));
-    carousel.addEventListener('mouseleave', () => startAutoRotate(carouselId));
-    carousel.addEventListener('focusin', () => stopAutoRotate(carouselId));
-    carousel.addEventListener('focusout', () => startAutoRotate(carouselId));
-    
-    // Initialize
-    updateCarousel(0, carouselId);
-    startAutoRotate(carouselId);
+
+    carousel.addEventListener('mouseenter', stopAutoRotate);
+    carousel.addEventListener('mouseleave', startAutoRotate);
+    carousel.addEventListener('focusin', stopAutoRotate);
+    carousel.addEventListener('focusout', startAutoRotate);
+
+    updateCarousel(0);
+    startAutoRotate();
   });
 }
 
