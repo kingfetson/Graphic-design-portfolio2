@@ -663,3 +663,173 @@ html {
 .social-icon:focus {
   outline: 2px solid var(--primary-color);
   outline
+/* Add to your existing CSS file */
+
+/* Case Study Specific Styles */
+.case-study-content {
+  margin-top: 1em;
+  transition: all 0.3s ease;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.case-study-content.expanded {
+  max-height: 2000px;
+  overflow-y: auto;
+}
+
+.case-study-preview h4 {
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.case-study-tags {
+  font-size: 0.85em;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.case-study-excerpt {
+  font-size: 0.95em;
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.case-study-full.hidden {
+  display: none;
+}
+
+.case-study-full {
+  padding-top: 1em;
+  border-top: 1px solid var(--card-border);
+  margin-top: 1em;
+}
+
+.case-study-section {
+  margin-bottom: 2em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.case-study-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.case-study-section h5 {
+  font-size: 1em;
+  color: var(--text-color);
+  margin-bottom: 1em;
+  font-weight: 600;
+  background-color: #f9f9f9;
+  padding: 0.5em 1em;
+  border-left: 3px solid var(--primary-color);
+  border-radius: 0 4px 4px 0;
+}
+
+.case-study-section p {
+  font-size: 0.95em;
+  color: var(--secondary-color);
+  line-height: 1.7;
+  margin-bottom: 1em;
+}
+
+.case-study-section p strong {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.case-study-list {
+  list-style-type: none;
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.case-study-list li {
+  font-size: 0.95em;
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin-bottom: 0.5em;
+  position: relative;
+  padding-left: 1em;
+}
+
+.case-study-list li:before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Expand Button Styles */
+.expand-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.expand-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
+}
+
+.expand-button[aria-expanded="true"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.expand-button[aria-expanded="true"] .expand-icon {
+  transform: rotate(180deg);
+}
+
+.expand-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.expand-text {
+  font-weight: 600;
+}
+
+/* Scrollbar for expanded content */
+.case-study-content.expanded::-webkit-scrollbar {
+  width: 6px;
+}
+
+.case-study-content.expanded::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.case-study-content.expanded::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.case-study-content.expanded::-webkit-scrollbar-thumb:hover {
+  background: #e55a28;
+}
