@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Festus - Visual Designer & Creative Developer">
+  <title>Festus - Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <nav class="top-navigation" id="top-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="#hero" class="nav-logo" aria-label="Go to home">F</a>
+      </div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link" aria-label="Go to home section">Home</a>
+        <a href="#about" class="nav-link" aria-label="Go to about section">About</a>
+        <a href="#projects" class="nav-link" aria-label="Go to projects section">Projects</a>
+        <a href="#contact" class="nav-link" aria-label="Go to contact section">Contact</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span class="toggle-icon"></span>
+        <span class="toggle-icon"></span>
+        <span class="toggle-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="main-wrapper">
+    
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1 id="hero-name" class="fade-in">Festus</h1>
+        <p id="hero-tagline" class="fade-in">Visual Designer & Creative Developer</p>
+        <a href="#projects" class="hero-button" id="hero-button" aria-label="View my work projects">View My Work</a>
+      </div>
+      <div class="hero-image-placeholder" role="img" aria-label="Hero image placeholder showing design work">
+        <div class="loading-shimmer"></div>
+        <span class="placeholder-text">[Hero Image Placeholder]</span>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+      <div class="section-label" id="about-label">About</div>
+      <div class="about-container">
+        <div class="profile-placeholder" role="img" aria-label="Profile photo placeholder">
+          <div class="loading-shimmer"></div>
+          <span class="placeholder-text">[Profile Photo]</span>
+        </div>
+        <div class="about-content">
+          <div class="bio-placeholder" id="about-bio">
+            [Bio placeholder text goes here. This would typically contain a short paragraph about the designer's background, approach, and passion for visual design and creative development.]
+          </div>
+          <div class="skills" id="skills-container">
+            <div class="skill-icon">
+              <div class="skill-icon-box" aria-label="Figma skill">
+                <span>Fi</span>
+              </div>
+              <div class="skill-name">Figma</div>
+            </div>
+            <div class="skill-icon">
+              <div class="skill-icon-box" aria-label="Photoshop skill">
+                <span>Ps</span>
+              </div>
+              <div class="skill-name">Photoshop</div>
+            </div>
+            <div class="skill-icon">
+              <div class="skill-icon-box" aria-label="Illustrator skill">
+                <span>Ai</span>
+              </div>
+              <div class="skill-name">Illustrator</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+      <div class="section-label" id="projects-label">Projects</div>
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <div class="project-row">
+          <div class="project-card project-card-half fade-in" style="animation-delay: 0.1s;">
+            <div class="project-image-carousel" role="region" aria-label="Project 1 image carousel">
+              <div class="carousel-content" id="carousel-content-1">[Image 1]</div>
+              <div class="carousel-indicator" role="tablist" aria-label="Project 1 image selection">
+                <button class="carousel-dot active" role="tab" aria-selected="true" tabindex="0" aria-label="Image 1" data-index="0" data-carousel="1"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 2" data-index="1" data-carousel="1"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 3" data-index="2" data-carousel="1"></button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" id="project1-title">[Project Title 1]</h3>
+              <p class="project-description" id="project1-desc">[One-line description for project 1]</p>
+            </div>
+          </div>
+
+          <div class="project-card project-card-half case-study fade-in" style="animation-delay: 0.2s;">
+            <div class="project-image-placeholder" role="img" aria-label="Project 1 case study main image">
+              <div class="loading-shimmer"></div>
+              <span class="placeholder-text">[Case Study Image 1]</span>
+            </div>
+            <div class="project-content">
+              <span class="case-study-badge">Full Case Study</span>
+              <h3 class="project-title" id="case-study-title-1">[Case Study Title 1]</h3>
+              <div class="case-study-content">
+                <div class="project-text-placeholder" style="width: 100%;"></div>
+                <div class="project-text-placeholder" style="width: 85%;"></div>
+                <div class="project-text-placeholder" style="width: 95%; margin-top: 1.5em;"></div>
+                <div class="project-text-placeholder" style="width: 70%;"></div>
+                <div class="project-text-placeholder" style="width: 90%;"></div>
+                <div class="project-text-placeholder" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-row">
+          <div class="project-card project-card-half fade-in" style="animation-delay: 0.3s;">
+            <div class="project-image-carousel" role="region" aria-label="Project 2 image carousel">
+              <div class="carousel-content" id="carousel-content-2">[Image 1]</div>
+              <div class="carousel-indicator" role="tablist" aria-label="Project 2 image selection">
+                <button class="carousel-dot active" role="tab" aria-selected="true" tabindex="0" aria-label="Image 1" data-index="0" data-carousel="2"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 2" data-index="1" data-carousel="2"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 3" data-index="2" data-carousel="2"></button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" id="project2-title">[Project Title 2]</h3>
+              <p class="project-description" id="project2-desc">[One-line description for project 2]</p>
+            </div>
+          </div>
+
+          <div class="project-card project-card-half case-study fade-in" style="animation-delay: 0.4s;">
+            <div class="project-image-placeholder" role="img" aria-label="Project 2 case study main image">
+              <div class="loading-shimmer"></div>
+              <span class="placeholder-text">[Case Study Image 2]</span>
+            </div>
+            <div class="project-content">
+              <span class="case-study-badge">Full Case Study</span>
+              <h3 class="project-title" id="case-study-title-2">[Case Study Title 2]</h3>
+              <div class="case-study-content">
+                <div class="project-text-placeholder" style="width: 100%;"></div>
+                <div class="project-text-placeholder" style="width: 85%;"></div>
+                <div class="project-text-placeholder" style="width: 95%; margin-top: 1.5em;"></div>
+                <div class="project-text-placeholder" style="width: 70%;"></div>
+                <div class="project-text-placeholder" style="width: 90%;"></div>
+                <div class="project-text-placeholder" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-row">
+          <div class="project-card project-card-half fade-in" style="animation-delay: 0.5s;">
+            <div class="project-image-carousel" role="region" aria-label="Project 3 image carousel">
+              <div class="carousel-content" id="carousel-content-3">[Image 1]</div>
+              <div class="carousel-indicator" role="tablist" aria-label="Project 3 image selection">
+                <button class="carousel-dot active" role="tab" aria-selected="true" tabindex="0" aria-label="Image 1" data-index="0" data-carousel="3"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 2" data-index="1" data-carousel="3"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 3" data-index="2" data-carousel="3"></button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" id="project3-title">[Project Title 3]</h3>
+              <p class="project-description" id="project3-desc">[One-line description for project 3]</p>
+            </div>
+          </div>
+
+          <div class="project-card project-card-half case-study fade-in" style="animation-delay: 0.6s;">
+            <div class="project-image-placeholder" role="img" aria-label="Project 3 case study main image">
+              <div class="loading-shimmer"></div>
+              <span class="placeholder-text">[Case Study Image 3]</span>
+            </div>
+            <div class="project-content">
+              <span class="case-study-badge">Full Case Study</span>
+              <h3 class="project-title" id="case-study-title-3">[Case Study Title 3]</h3>
+              <div class="case-study-content">
+                <div class="project-text-placeholder" style="width: 100%;"></div>
+                <div class="project-text-placeholder" style="width: 85%;"></div>
+                <div class="project-text-placeholder" style="width: 95%; margin-top: 1.5em;"></div>
+                <div class="project-text-placeholder" style="width: 70%;"></div>
+                <div class="project-text-placeholder" style="width: 90%;"></div>
+                <div class="project-text-placeholder" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-row">
+          <div class="project-card project-card-half fade-in" style="animation-delay: 0.7s;">
+            <div class="project-image-carousel" role="region" aria-label="Project 4 image carousel">
+              <div class="carousel-content" id="carousel-content-4">[Image 1]</div>
+              <div class="carousel-indicator" role="tablist" aria-label="Project 4 image selection">
+                <button class="carousel-dot active" role="tab" aria-selected="true" tabindex="0" aria-label="Image 1" data-index="0" data-carousel="4"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 2" data-index="1" data-carousel="4"></button>
+                <button class="carousel-dot" role="tab" aria-selected="false" tabindex="-1" aria-label="Image 3" data-index="2" data-carousel="4"></button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" id="project4-title">[Project Title 4]</h3>
+              <p class="project-description" id="project4-desc">[One-line description for project 4]</p>
+            </div>
+          </div>
+
+          <div class="project-card project-card-half case-study fade-in" style="animation-delay: 0.8s;">
+            <div class="project-image-placeholder" role="img" aria-label="Project 4 case study main image">
+              <div class="loading-shimmer"></div>
+              <span class="placeholder-text">[Case Study Image 4]</span>
+            </div>
+            <div class="project-content">
+              <span class="case-study-badge">Full Case Study</span>
+              <h3 class="project-title" id="case-study-title-4">[Case Study Title 4]</h3>
+              <div class="case-study-content">
+                <div class="project-text-placeholder" style="width: 100%;"></div>
+                <div class="project-text-placeholder" style="width: 85%;"></div>
+                <div class="project-text-placeholder" style="width: 95%; margin-top: 1.5em;"></div>
+                <div class="project-text-placeholder" style="width: 70%;"></div>
+                <div class="project-text-placeholder" style="width: 90%;"></div>
+                <div class="project-text-placeholder" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="section-label" id="contact-label">Contact</div>
+      <form class="contact-form" id="contact-form" onsubmit="event.preventDefault(); handleFormSubmit();">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Your name" required>
+          <div class="form-error" id="name-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+          <div class="form-error" id="email-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea id="message" class="form-textarea" placeholder="Your message..." required minlength="10"></textarea>
+          <div class="form-error" id="message-error"></div>
+        </div>
+        <button type="submit" class="submit-button" id="submit-button">Send Message</button>
+      </form>
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Visit LinkedIn profile">LinkedIn</a>
+        <a href="#" class="social-icon" aria-label="Visit GitHub profile">GitHub</a>
+        <a href="#" class="social-icon" aria-label="Visit Behance profile">Behance</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-copyright" id="footer-copyright">© 2024 Festus Portfolio</div>
+        <div class="footer-links">
+          <a href="#hero" class="footer-link" aria-label="Go to home section">Home</a>
+          <a href="#about" class="footer-link" aria-label="Go to about section">About</a>
+          <a href="#projects" class="footer-link" aria-label="Go to projects section">Projects</a>
+          <a href="#contact" class="footer-link" aria-label="Go to contact section">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="footer-social-icon" aria-label="LinkedIn">Li</a>
+          <a href="#" class="footer-social-icon" aria-label="GitHub">Gh</a>
+          <a href="#" class="footer-social-icon" aria-label="Behance">Be</a>
+        </div>
+      </div>
+      
+      <!-- Back to Top Button -->
+      <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top of page">
+        <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="back-to-top-text">Back to Top</span>
+      </button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="canva-integration.js"></script>
+</body>
+</html>
