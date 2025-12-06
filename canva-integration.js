@@ -22,9 +22,11 @@ const defaultConfig = {
   projects_label: "Projects",
   
   // Project 1
-  project1_title: "[Project Title 1]",
-  project1_desc: "[One-line description for project 1]",
-  case_study_title_1: "[Case Study Title 1]",
+  project1_title: "African Pattern Poster",
+  project1_desc: "Cultural pattern design inspired by African visual traditions",
+  case_study_title_1: "African Pattern Poster",
+  case_study_excerpt_1: "This project introduced me to African visual traditions and the fundamentals of 2D design. I explored how textiles, cultural symbols, and geometric forms communicate identity...",
+  case_study_tags_1: "2D Design • Cultural Research • Pattern Systems • Visual Identity",
   
   // Project 2
   project2_title: "[Project Title 2]",
@@ -138,6 +140,23 @@ async function onConfigChange(config) {
   document.getElementById('project1-title').textContent = config.project1_title || defaultConfig.project1_title;
   document.getElementById('project1-desc').textContent = config.project1_desc || defaultConfig.project1_desc;
   document.getElementById('case-study-title-1').textContent = config.case_study_title_1 || defaultConfig.case_study_title_1;
+  
+  // Update case study preview content
+  const caseStudyPreview = document.querySelector('.case-study-preview h4');
+  const caseStudyTags = document.querySelector('.case-study-tags');
+  const caseStudyExcerpt = document.querySelector('.case-study-excerpt');
+  
+  if (caseStudyPreview) {
+    caseStudyPreview.textContent = `PROJECT 1 — ${config.case_study_title_1 || defaultConfig.case_study_title_1} (Case Study)`;
+  }
+  
+  if (caseStudyTags) {
+    caseStudyTags.textContent = config.case_study_tags_1 || defaultConfig.case_study_tags_1;
+  }
+  
+  if (caseStudyExcerpt) {
+    caseStudyExcerpt.textContent = config.case_study_excerpt_1 || defaultConfig.case_study_excerpt_1;
+  }
   
   // Project 2
   document.getElementById('project2-title').textContent = config.project2_title || defaultConfig.project2_title;
@@ -274,6 +293,8 @@ function mapToEditPanelValues(config) {
     ["project1_title", config.project1_title || defaultConfig.project1_title],
     ["project1_desc", config.project1_desc || defaultConfig.project1_desc],
     ["case_study_title_1", config.case_study_title_1 || defaultConfig.case_study_title_1],
+    ["case_study_excerpt_1", config.case_study_excerpt_1 || defaultConfig.case_study_excerpt_1],
+    ["case_study_tags_1", config.case_study_tags_1 || defaultConfig.case_study_tags_1],
     
     // Project 2
     ["project2_title", config.project2_title || defaultConfig.project2_title],
@@ -303,54 +324,4 @@ if (window.elementSdk) {
     mapToCapabilities,
     mapToEditPanelValues
   });
-}
-// In your defaultConfig object, add these new properties:
-const defaultConfig = {
-  // ... existing properties ...
-  
-  // New case study text properties
-  case_study_title_1: "African Pattern Poster",
-  case_study_full_text_1: "PROJECT 1 — African Pattern Poster (Case Study)...", // Add full text here if needed
-  case_study_excerpt_1: "This project introduced me to African visual traditions and the fundamentals of 2D design. I explored how textiles, cultural symbols, and geometric forms communicate identity...",
-  case_study_tags_1: "2D Design • Cultural Research • Pattern Systems • Visual Identity",
-  
-  // ... rest of your config ...
-};
-
-// In your onConfigChange function, add text updates for the case study:
-async function onConfigChange(config) {
-  // ... existing code ...
-  
-  // Update case study content
-  const caseStudyPreview = document.querySelector('.case-study-preview h4');
-  const caseStudyTags = document.querySelector('.case-study-tags');
-  const caseStudyExcerpt = document.querySelector('.case-study-excerpt');
-  
-  if (caseStudyPreview) {
-    caseStudyPreview.textContent = `PROJECT 1 — ${config.case_study_title_1 || defaultConfig.case_study_title_1} (Case Study)`;
-  }
-  
-  if (caseStudyTags) {
-    caseStudyTags.textContent = config.case_study_tags_1 || defaultConfig.case_study_tags_1;
-  }
-  
-  if (caseStudyExcerpt) {
-    caseStudyExcerpt.textContent = config.case_study_excerpt_1 || defaultConfig.case_study_excerpt_1;
-  }
-  
-  // ... existing code ...
-}
-
-// In your mapToEditPanelValues function, add the new text fields:
-function mapToEditPanelValues(config) {
-  return new Map([
-    // ... existing entries ...
-    
-    // Add these new entries for case study
-    ["case_study_title_1", config.case_study_title_1 || defaultConfig.case_study_title_1],
-    ["case_study_excerpt_1", config.case_study_excerpt_1 || defaultConfig.case_study_excerpt_1],
-    ["case_study_tags_1", config.case_study_tags_1 || defaultConfig.case_study_tags_1],
-    
-    // ... existing entries ...
-  ]);
 }
