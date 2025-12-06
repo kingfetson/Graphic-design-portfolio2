@@ -662,8 +662,130 @@ html {
 
 .social-icon:focus {
   outline: 2px solid var(--primary-color);
-  outline
-/* Add to your existing CSS file */
+  outline-offset: 2px;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--surface-color);
+  color: #ffffff;
+  padding: 2.5% 8%;
+  text-align: center;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-copyright {
+  color: #999999;
+  font-size: 0.9em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2em;
+}
+
+.footer-link {
+  color: #999999;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+}
+
+.footer-link:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  color: var(--primary-color);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1em;
+}
+
+.footer-social-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #999999;
+  font-size: 0.7em;
+  transition: all 0.3s ease;
+}
+
+.footer-social-icon:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-social-icon:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 998;
+  visibility: hidden;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: #e55a28;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.back-to-top-text {
+  font-size: 0.9em;
+  font-weight: 600;
+}
 
 /* Case Study Specific Styles */
 .case-study-content {
@@ -833,173 +955,181 @@ html {
 .case-study-content.expanded::-webkit-scrollbar-thumb:hover {
   background: #e55a28;
 }
-/* Add these styles to your existing styles.css file */
 
-/* Case Study Specific Styles */
-.case-study-content {
-  margin-top: 1em;
-  transition: all 0.3s ease;
-  max-height: 200px;
-  overflow: hidden;
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 14px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    flex-direction: column;
+    padding: 1em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 1em;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-placeholder {
+    margin: 0 auto 2em;
+  }
+
+  .skills {
+    justify-content: center;
+  }
+
+  .project-row {
+    flex-direction: column;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5em;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+  }
+
+  .back-to-top-text {
+    display: none;
+  }
+  
+  .back-to-top {
+    padding: 12px;
+  }
 }
 
-.case-study-content.expanded {
-  max-height: 2000px;
-  overflow-y: auto;
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .hero-button {
+    padding: 0.8em 2em;
+  }
+
+  .section {
+    padding: 8% 5%;
+  }
+
+  .project-image-carousel,
+  .project-image-placeholder {
+    height: 200px;
+  }
+
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .case-study-preview h4 {
+    font-size: 1em;
+  }
+
+  .case-study-tags {
+    font-size: 0.8em;
+  }
 }
 
-.case-study-preview h4 {
-  font-size: 1.1em;
-  margin-bottom: 0.5em;
-  color: var(--text-color);
-  font-weight: 600;
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .hero-button,
+  .case-study-badge,
+  .submit-button,
+  .expand-button,
+  .back-to-top {
+    border: 2px solid currentColor;
+  }
 }
 
-.case-study-tags {
-  font-size: 0.85em;
-  color: var(--primary-color);
-  font-weight: 500;
-  margin-bottom: 1em;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  flex-wrap: wrap;
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fade-in {
+    animation: none;
+    opacity: 1;
+  }
+
+  .loading-shimmer {
+    animation: none;
+  }
 }
 
-.case-study-excerpt {
-  font-size: 0.95em;
-  color: var(--secondary-color);
-  line-height: 1.6;
-  margin-bottom: 1em;
-}
+/* Print Styles */
+@media print {
+  .hero-button,
+  .social-icon,
+  .footer-social-icon,
+  .submit-button,
+  .carousel-indicator,
+  .back-to-top,
+  .expand-button {
+    display: none !important;
+  }
 
-.case-study-full.hidden {
-  display: none;
-}
+  .project-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
-.case-study-full {
-  padding-top: 1em;
-  border-top: 1px solid var(--card-border);
-  margin-top: 1em;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-.case-study-section {
-  margin-bottom: 2em;
-  padding-bottom: 1.5em;
-  border-bottom: 1px dashed #e0e0e0;
-}
+  .footer {
+    background-color: white !important;
+    color: black !important;
+    border-top: 2px solid #000;
+  }
 
-.case-study-section:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.case-study-section h5 {
-  font-size: 1em;
-  color: var(--text-color);
-  margin-bottom: 1em;
-  font-weight: 600;
-  background-color: #f9f9f9;
-  padding: 0.5em 1em;
-  border-left: 3px solid var(--primary-color);
-  border-radius: 0 4px 4px 0;
-}
-
-.case-study-section p {
-  font-size: 0.95em;
-  color: var(--secondary-color);
-  line-height: 1.7;
-  margin-bottom: 1em;
-}
-
-.case-study-section p strong {
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-.case-study-list {
-  list-style-type: none;
-  margin: 1em 0;
-  padding-left: 1.5em;
-}
-
-.case-study-list li {
-  font-size: 0.95em;
-  color: var(--secondary-color);
-  line-height: 1.6;
-  margin-bottom: 0.5em;
-  position: relative;
-  padding-left: 1em;
-}
-
-.case-study-list li:before {
-  content: "•";
-  color: var(--primary-color);
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-}
-
-/* Expand Button Styles */
-.expand-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  border-radius: 4px;
-  padding: 0.6em 1.2em;
-  font-size: 0.9em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-top: 1em;
-}
-
-.expand-button:hover {
-  background-color: var(--primary-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
-}
-
-.expand-button[aria-expanded="true"] {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.expand-button[aria-expanded="true"] .expand-icon {
-  transform: rotate(180deg);
-}
-
-.expand-icon {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-}
-
-.expand-text {
-  font-weight: 600;
-}
-
-/* Scrollbar for expanded content */
-.case-study-content.expanded::-webkit-scrollbar {
-  width: 6px;
-}
-
-.case-study-content.expanded::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 3px;
-}
-
-.case-study-content.expanded::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 3px;
-}
-
-.case-study-content.expanded::-webkit-scrollbar-thumb:hover {
-  background: #e55a28;
+  .footer-link,
+  .footer-copyright {
+    color: black !important;
+  }
 }
