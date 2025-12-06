@@ -689,3 +689,60 @@ document.addEventListener('DOMContentLoaded', function() {
   initExpandableCaseStudies();
   // ... other initializations ...
 });
+// Add this function to your existing script.js file
+
+function initExpandableCaseStudies() {
+  const expandButton = document.getElementById('expand-project1');
+  const caseStudyContent = document.getElementById('project1-case-study');
+  
+  if (!expandButton || !caseStudyContent) return;
+  
+  const fullContent = caseStudyContent.querySelector('.case-study-full');
+  const expandText = expandButton.querySelector('.expand-text');
+  
+  expandButton.addEventListener('click', function() {
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    
+    // Toggle expanded state
+    this.setAttribute('aria-expanded', !isExpanded);
+    
+    // Toggle classes
+    caseStudyContent.classList.toggle('collapsed');
+    caseStudyContent.classList.toggle('expanded');
+    fullContent.classList.toggle('hidden');
+    
+    // Update button text
+    if (isExpanded) {
+      expandText.textContent = 'Read Full Case Study';
+      // Scroll back to button position
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 300);
+    } else {
+      expandText.textContent = 'Show Less';
+      // Scroll to top of case study when expanding
+      setTimeout(() => {
+        caseStudyContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+  
+  // Add keyboard support
+  expandButton.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+}
+
+// Call this function in your DOMContentLoaded event listener
+// Add this to the existing DOMContentLoaded event in script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // ... your existing initializations ...
+  
+  // Add this line after other initializations
+  initExpandableCaseStudies();
+  
+  // ... your existing initializations ...
+});
